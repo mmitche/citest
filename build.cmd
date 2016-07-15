@@ -1,2 +1,2 @@
 echo Hello World 1
-timeout.exe /T 60 /NOBREAK
+ping 127.0.0.1 -n 60
