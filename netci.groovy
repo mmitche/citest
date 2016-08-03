@@ -33,6 +33,10 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
         
         Utilities.setMachineAffinity(newJob, 'Windows_NT', 'latest-or-auto')
         Utilities.standardJobSetup(newJob, project, isPR, "*/${branch}")
+        
+        
+        // ARGGGHHIVAL
+        
         if (isPR) {
             TriggerBuilder builder = TriggerBuilder.triggerOnPullRequest()
             builder.setGithubContext("Say Hello (dotnet-ci2) ${letter}")
