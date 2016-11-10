@@ -19,6 +19,7 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
         if (isPR) {
             TriggerBuilder builder = TriggerBuilder.triggerOnPullRequest()
             builder.triggerByDefault()
+            builder.setGithubContext("Hello World Job")
             builder.triggerForBranch(branch)
             builder.emitTrigger(newJob)
         }
