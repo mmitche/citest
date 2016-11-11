@@ -9,6 +9,8 @@ if (GenerationSettings.generateDisabled) {
     println ("Generating disabled by setting")
 }
 
+MethodTest()
+
 def project = GithubProject
 def branch = GithubBranchName
 def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolderName(branch)
@@ -33,7 +35,7 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
     }
 }
 
-def static MethodTest {
+def static MethodTest()
     if (GenerateDisabled) {
         println ("Generating disabled by param inside static")
     }
