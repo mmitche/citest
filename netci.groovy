@@ -2,6 +2,13 @@
 
 import jobs.generation.*;
 
+if (GenerateDisabled) {
+    println ("Generating disabled by param")
+}
+if (GenerationSettings.generateDisabled) {
+    println ("Generating disabled by setting")
+}
+
 def project = GithubProject
 def branch = GithubBranchName
 def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolderName(branch)
