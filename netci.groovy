@@ -32,3 +32,9 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
         }
     }
 }
+
+def static MethodTest {
+    if (GenerateDisabled) {
+        println ("Generating disabled by param inside static")
+    }
+}
