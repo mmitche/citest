@@ -42,6 +42,7 @@ static void MethodTest(def out) {
     String genDisabledValue = env.get("GenerateDisabled", "false")
     out.println genDisabledValue;
     boolean genDisabled = Boolean.parseBoolean(genDisabledValue)
+    out.println env.get("GithubProject", null)
     if (genDisabled) {
         out.println ("Generating disabled by param inside static")
     }
