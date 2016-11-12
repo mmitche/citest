@@ -40,7 +40,7 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
 static void MethodTest(def out) {
     EnvVars env = Executor.currentExecutor().getCurrentExecutable().getEnvironment()
     String genDisabledValue = env.get("GenerateDisabled", "false")
-    println genDisabledValue;
+    out.println genDisabledValue;
     boolean genDisabled = Boolean.parseBoolean(genDisabledValue)
     if (genDisabled) {
         out.println ("Generating disabled by param inside static")
