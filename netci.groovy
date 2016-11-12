@@ -1,6 +1,8 @@
 // Import the utility functionality.
 
 import jobs.generation.*;
+import hudson.EnvVars;
+import hudson.model.Executor;
 
 if (GenerateDisabled) {
     println ("Generating disabled by param")
@@ -9,7 +11,7 @@ if (GenerationSettings.generateDisabled) {
     println ("Generating disabled by setting")
 }
 
-MethodTest()
+MethodTest(out)
 
 def project = GithubProject
 def branch = GithubBranchName
@@ -35,8 +37,12 @@ def projectFolder = Utilities.getFolderName(project) + '/' + Utilities.getFolder
     }
 }
 
-static void MethodTest() {
-    if (GenerateDisabled) {
-        println ("Generating disabled by param inside static")
+static void MethodTest(def out) {
+    EnvVars env = Executor.currentExecutor().getCurrentExecutable().getEnvironment()
+    String genDisabledValue = env.get("GenerateDisabled", "false")
+    println genDisabledValue;
+    boolean genDisabled = Boolean.parseBoolean(genDisabledValue)
+    if (genDisabled) {
+        out.println ("Generating disabled by param inside static")
     }
 }
