@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+print env
+
 stage ('Product Build') {
     echo 'Hello from Product Build'
 }
