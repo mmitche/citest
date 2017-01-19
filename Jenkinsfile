@@ -1,10 +1,6 @@
 #!/usr/bin/env groovy
 
-@NonCPS
-def printParams() {
-  env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
-}
-printParams()
+echo env.JOB_NAME
 
 stage ('Product Build') {
     echo 'Hello from Product Build'
