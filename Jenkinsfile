@@ -3,7 +3,9 @@
 // The steps variable is an object defining steps for the pipeline.
 // You can override echo here, then call steps.echo to call the original (vs. )
 def echo(def valueToEcho) {
-    steps.echo "Hello World " + valueToEcho
+    printTiming {
+        steps.echo "Hello World " + valueToEcho
+    }
 }
 
 def bat(def testExecution) {
