@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 
+import groovy.time.TimeCategory 
+import groovy.time.TimeDuration
+
 def printTiming(Closure body) {
     echo "Starting step"
     def start = new Date()
