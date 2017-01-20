@@ -20,7 +20,7 @@ def echo(def valueToEcho) {
     }
 }
 
-def bat(def testExecution) {
+def sh(def testExecution) {
     printTiming {
         steps.bat testExecution
     }
