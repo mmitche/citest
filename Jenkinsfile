@@ -1,5 +1,9 @@
 #!/usr/bin/env groovy
 
+def echo(def valueToEcho) {
+    print "Hello World " + valueToEcho
+}
+
 echo env.JOB_NAME
 
 stage ('Product Build') {
