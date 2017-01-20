@@ -21,9 +21,9 @@ stage ('Test Build') {
     echo 'Hello from Test Build'
 }
 def tests = [:]
-tests['A'] = { node { echo 'Hello from Test A'} } 
-tests['B'] = { node { echo 'Hello from Test B'} }
-tests['C'] = { node { echo 'Hello from Test C'} }
+tests['A'] = { node { bat 'echo Hello from Test A'} } 
+tests['B'] = { node { bat 'echo Hello from Test B'} }
+tests['C'] = { node { bat 'echo Hello from Test C'} }
 stage ('Test Execution') {
     parallel tests
 }
