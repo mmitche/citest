@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def echo(def valueToEcho) {
-    super.echo "Hello World " + valueToEcho
+    steps.echo "Hello World " + valueToEcho
 }
 
 echo env.JOB_NAME
