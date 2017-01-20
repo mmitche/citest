@@ -4,12 +4,12 @@ import groovy.time.TimeCategory
 import groovy.time.TimeDuration
 
 def printTiming(Closure body) {
-       steps.echo "Starting step"
+    steps.echo "Starting step"
     def start = new Date()
     body()
     def stop = new Date()
     TimeDuration td = TimeCategory.minus( stop, start )
-          steps.echo "Finishing step (took ${td})"
+    steps.echo "Finishing step (took ${td})"
 }
 
 // The steps variable is an object defining steps for the pipeline.
@@ -22,7 +22,7 @@ def echo(def valueToEcho) {
 
 def sh(def testExecution) {
     printTiming {
-        steps.bat testExecution
+        steps.sh testExecution
     }
 }
 
