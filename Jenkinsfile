@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+echo env.JOB_NAME
+
 stage ('Product Build') {
     echo 'Hello from Product Build'
 }
@@ -9,6 +11,7 @@ stage ('Test Build') {
 def tests = [:]
 tests['A'] = {echo 'Hello from Test A'} 
 tests['B'] = {echo 'Hello from Test B'} 
+tests['C'] = {echo 'Hello from Test C'} 
 stage ('Test Execution') {
     parallel tests
 }
