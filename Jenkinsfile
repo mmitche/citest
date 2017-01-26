@@ -20,24 +20,47 @@ def echo(def valueToEcho) {
     }
 }
 
-def sh(def testExecution) {
-    printTiming {
-        steps.sh testExecution
-    }
-}
+// Stuff to go in libraries
 
-echo env.JOB_NAME
+// def startVSTSBuild() {
+//   Starts VSTS build and returns immediately
+//   Could send telemtry info along in this function if provided as parameters
+// }
 
-stage ('Product Build') {
-    echo 'Hello from Product Build'
-}
-stage ('Test Build') {
-    echo 'Hello from Test Build'
-}
-def tests = [:]
-tests['A'] = { node { sh 'echo Hello from Test A'} } 
-tests['B'] = { node { sh 'echo Hello from Test B'} }
-tests['C'] = { node { sh 'echo Hello from Test C'} }
-stage ('Test Execution') {
-    parallel tests
-}
+// def waitForVSTSBuild() {
+//   Waits for the VSTS build to finish and returns results
+//   Could send telemtry info along in this function if provided as parameters
+// }
+
+// def sendReportingInfo() {
+//   Should probably be broken into multiple functions depending on what info needs to come out
+//   We should enforce its use by ensuring that we have associated data before we launch workloads that require that.  For instance,
+//   if a user should call "tell EventHub I'm starting a build" once at the start of the pipeline, then we can enforce that by updating state during
+//   the pipeline, and overriden steps (like bat or vstsBuild or whatnot) will check flags.
+//
+//    For instance, we can instantiate an object associated with the pipeline which describes overall state
+//    utilized by generic telemetry functionality.
+// }
+
+// Corefx orchestrated build
+
+// This data comes from the build inputs, either automatically generated based on "tracked repo" or from whatever plugin is launching the build and setting
+// these input parameters.  Augment as necessary
+// 
+// Repository = repository
+// User = user that launched it/submitted PR/etc.
+// Branch = branch that we're running, or hash if detached.  
+// Hash = hash that we're running, empty if head.
+//      There are some odd things about hashes, since a hash can belong to more than one branch.  For purposes of reporting, we have 3 categories to worry
+
+// Import shared library containing basic commands with telemetry
+// Import library at specific branch
+
+// We run the build and test for each platform.
+// pseudocode
+// (in parallel) {
+//     Build platform (builds product + tests and submits to helix)
+// }
+// Publish Packages to Feeds - Release
+// Publish Packages to Drop - Debug
+
