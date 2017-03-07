@@ -1,3 +1,5 @@
 node {
-    echo 'Hello World'
+    checkout scm
+    
+    sh 'ls'
 }
